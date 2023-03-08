@@ -1,0 +1,32 @@
+.wrapper {
+    width: var(--default-sidebar-width);
+    overflow-x: hidden;
+    position: fixed;
+    overscroll-behavior-y: contain;
+    bottom: 0;
+    top: calc(var(--default-layout_header-height) + 15px);
+    perspective-origin: bottom right;
+    overflow-y: auto;
+    &:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+        transition: all 0.2s linear;
+    }
+}
+.wrapper::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 6px;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.wrapper::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.088);
+}
+
+.wrapper::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0);
+}
+.wrapper h2 {
+    color: var(--default-main-text-color);
+}

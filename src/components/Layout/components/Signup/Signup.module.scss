@@ -1,0 +1,351 @@
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }
+}
+.form-sign {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.482);
+    transition: all 0.2s linear;
+}
+.show {
+    display: block;
+    transition: all linear;
+    z-index: 1000 !important;
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: all 2.5s linear;
+    animation: showForm 0.15s ease-in forwards;
+}
+@keyframes showForm {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1 !important;
+    }
+}
+.sign-in-form {
+    transition: all 0.15s linear;
+}
+.form-close_btn {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.5rem;
+}
+.form-valid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--default-background-input-color);
+    padding: 5.5rem 6.5rem;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+}
+.form {
+    margin: 1.3rem 0;
+}
+.header-title {
+    font-size: 2.5rem;
+    margin: 2rem 0 1.2rem 0;
+    font-weight: bolder;
+    text-align: center;
+}
+.header-subtile {
+    color: var(--default-sub-text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.form-input {
+    margin: 1.8rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.password-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 13px;
+}
+.form-input label {
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+    position: absolute;
+    left: 20px;
+    top: 13px;
+    cursor: pointer;
+    color: var(--default-sub-text-color);
+    transition: all 0.5s linear;
+}
+.form-input input {
+    position: relative;
+    padding: 1rem 3.5rem 1rem 2.2rem;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.7rem;
+    outline: none;
+    outline: 1px solid var(--default-sub-border-color);
+    &:hover {
+        cursor: pointer;
+        outline-color: var(--primary-icon);
+    }
+    &:focus {
+        cursor: pointer;
+        outline-color: var(--primary-icon);
+    }
+    transition: all 0.25s linear;
+}
+.form-input input:focus ~ label {
+    top: -8px;
+    color: var(--primary-icon);
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    background-color: var(--default-background-input-color);
+    transition: all 0.25s linear;
+}
+.inputValid {
+    top: -8px !important;
+    color: var(--default-sub-text-color);
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    background-color: var(--default-background-input-color);
+}
+.signin_btn {
+    font-size: 1.6rem;
+    border-radius: 20px;
+    background-color: var(--primary-icon);
+    color: var(--default-sub-text-color);
+    margin: 1.8rem 0.7rem;
+    display: flex;
+    justify-content: center;
+    padding: 1.4rem 1rem;
+    cursor: pointer;
+    transition: all 0.25s linear;
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+.login-another {
+    margin: 1.8rem 0.7rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 1.3rem 1rem;
+    font-size: 1.3rem;
+    border-radius: 20px;
+    border: 1px solid var(--primary-icon);
+    color: var(--primary-icon);
+    background-color: var(--default-background-color);
+    cursor: pointer;
+    align-items: center;
+    position: relative;
+    transition: all 0.2s linear;
+    &:hover {
+        background-color: var(--default-primary-background);
+    }
+}
+.login-another img {
+    position: absolute;
+    left: 15%;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.login-another p {
+    margin-left: 1.5rem;
+}
+.signup {
+    margin-top: 5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    color: var(--default-sub-text-color);
+}
+.signup-link {
+    color: var(--primary-icon);
+    cursor: pointer;
+    margin-left: 0.7rem;
+    &:hover {
+        text-decoration: underline;
+    }
+    font-size: 1.5rem;
+}
+.forget-password {
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--primary-icon);
+    padding: 0.25rem 0.5rem;
+    max-width: max-content;
+    margin: 1.2rem;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.message-error,
+.user-error {
+    background-color: var(--default-background-input-color);
+    color: var(--default-sub-text-color);
+    padding: 2.5rem 1.2rem;
+    width: 300px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    bottom: 10%;
+    transform: translateX(-100%);
+    border-left: 5px solid var(--primary-icon) !important;
+    transition: all 1s linear;
+    border-radius: 10px;
+    border-color: transparent;
+    z-index: 1200;
+    opacity: 0;
+}
+.showMessageError {
+    animation: showError 0.75s linear forwards;
+}
+.hidenMessageError {
+    animation: hidenError 0.75s linear forwards;
+}
+.message-error p,
+.user-error p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-left: 3rem;
+}
+.close-error {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.icon-error {
+    font-size: 2rem;
+    color: var(--error-icon);
+}
+.timeline {
+    width: 98%;
+    border-radius: 10px;
+    height: 3px;
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    left: 1%;
+    background-color: var(--error-icon);
+    transition: all 1.5s linear;
+    animation: 2s linear forwards;
+    animation-name: timelineError;
+}
+@keyframes showError {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+}
+@keyframes hidenError {
+    from {
+        transform: translateX(10%);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+@keyframes timelineError {
+    from {
+        width: 98%;
+        transition: all linear;
+    }
+    to {
+        width: 0;
+        transition: all linear;
+    }
+}
+.input-error {
+    font-size: 2rem;
+    color: var(--error-icon);
+    position: absolute;
+    right: -9%;
+    top: 11px;
+}
+.reset-passsword {
+    width: 100%;
+    padding: none;
+}
+
+@keyframes hidenformSign {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        z-index: 1000;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(0);
+        z-index: -1000;
+        opacity: 0;
+    }
+}
+@keyframes showformSign {
+    from {
+        z-index: -1000;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        z-index: 1000;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+@keyframes hidenbgForm {
+    from {
+        opacity: 1;
+        z-index: 1000;
+    }
+    to {
+        z-index: -1000;
+        opacity: 0;
+    }
+}
+@keyframes showbgForm {
+    from {
+        z-index: -1000;
+        opacity: 0;
+    }
+    to {
+        z-index: 1000;
+        opacity: 1;
+    }
+}
+.hidenSignForm {
+    animation: hidenformSign 0.25s linear forwards;
+}
+.showSignForm {
+    animation: showformSign 0.25s linear forwards;
+}
+.showInputform {
+    animation: showbgForm 0.35s ease-in forwards;
+}
+.hidenInputform {
+    animation: hidenbgForm 0.35s ease-in forwards;
+}

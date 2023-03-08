@@ -1,0 +1,21 @@
+.hastag-wrapper {
+    position: relative;
+    max-width: 100%;
+    position: relative;
+    padding: 15px 15px 7px 7px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 1%;
+        width: 90%;
+        left: 5%;
+        height: 1px;
+        background-color: rgba(218, 218, 218, 0.48);
+    }
+}
+.hastag-wrapper h5 {
+    font-size: 1.5rem;
+    color: var(--default-sub-text-color);
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}

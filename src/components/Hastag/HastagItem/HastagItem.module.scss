@@ -1,0 +1,28 @@
+.Hastag-item p {
+    font-size: 1rem;
+    color: var(--default-sub-text-color);
+}
+.Hastag-item {
+    border-radius: 10px;
+    border: 1px solid var(--default-sub-border-color);
+    display: flex;
+    align-items: center;
+    min-width: max-content;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--default-background-hastag-color);
+    }
+    margin: 0.4rem 0.3rem;
+}
+.Hastag-item p {
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+}
+.icon-hastag {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+.dark {
+    color: var(--default-main-text-color);
+}
