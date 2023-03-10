@@ -5,7 +5,7 @@
     --search-btn-width: 52px;
     --search-color-icon: rgba(22, 24, 35, 0.34);
     width: 100%;
-    height: var(--default-layout_header-height, 60px);
+    height: var(--default-layout_header-height, 70px);
     box-shadow: var(--default-box-shadow-color);
     display: flex;
     justify-content: center;
@@ -108,4 +108,28 @@ a[href] {
     cursor: pointer;
 }
 .darkMode {
+}
+.isScroll {
+    transition: all linear 0.4s;
+    animation: shortLess 0.4s linear forwards;
+}
+.isFixSroll {
+    transition: all linear 0.4s;
+    animation: removeLess 0.4s linear forwards;
+}
+@keyframes shortLess {
+    from {
+        height: 80px;
+    }
+    to {
+        height: 60px;
+    }
+}
+@keyframes removeLess {
+    from {
+        height: 60px;
+    }
+    to {
+        height: 80px;
+    }
 }

@@ -31,3 +31,42 @@
     left: 0;
     right: 0;
 }
+.onTopWrapper {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(255, 56, 95);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.icon-onTop {
+}
+.ontop {
+    transition: all linear 0.4s;
+    animation: showOntop 0.4s linear forwards;
+}
+.hidenTop {
+    transition: all linear 0.4s;
+    animation: hidenTop 0.4s linear forwards;
+}
+@keyframes showOntop {
+    from {
+        right: -50px;
+    }
+    to {
+        right: 25px;
+    }
+}
+@keyframes hidenTop {
+    from {
+        right: 25px;
+    }
+    to {
+        right: -50px;
+    }
+}

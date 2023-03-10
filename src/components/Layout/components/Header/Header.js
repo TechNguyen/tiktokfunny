@@ -13,6 +13,7 @@ import Image from '~/components/Images/Images'
 import SearchHeader from '../Search/Search'
 import { Link } from 'react-router-dom'
 import config from '~/config/config'
+import { useEffect, useState } from 'react'
 const cx = classNames.bind(styles)
 function Header(props) {
     const handleDark = props.lightodar
@@ -65,8 +66,24 @@ function Header(props) {
             signoutfnc: handleSignout,
         },
     ]
+    const [isScrolled, setIsscroll] = useState(false)
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                setIsscroll(true)
+            } else {
+                setIsscroll(false)
+            }
+        })
+    })
+
     return (
-        <header className={cx('wrapper')}>
+        <header
+            className={cx('wrapper', {
+                isScroll: isScrolled,
+                isFixSroll: !isScrolled,
+            })}
+        >
             <div className={cx('header-inner')}>
                 <Link to={config.routers.home} className={cx('logo-link')}>
                     {props.darkColor ? (

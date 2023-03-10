@@ -5,14 +5,29 @@ import Home from '~/pages/Home'
 import styles from './DefaultLayout.module.scss'
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
-import { useState, createContext } from 'react'
+import { useState, createContext, useEffect } from 'react'
 import { useRef } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowsUpToLine } from '@fortawesome/free-solid-svg-icons'
 const cx = classNames.bind(styles)
 export const ThemeContext = createContext()
 function DefaultLayout({ children }) {
     const [signin, setSignup] = useState(false)
     const [curentUser, setCurentUser] = useState(false)
     const [darkMode, setDarkMode] = useState(false)
+    const [isShow, setisShow] = useState(false)
+    const handleTop = () => {
+        window.scrollTo()
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                setisShow(true)
+            } else {
+                setisShow(false)
+            }
+        })
+    })
     const rootElemet = useRef()
     const handleShowSign = () => {
         setSignup(signin === true ? false : true)
@@ -54,6 +69,19 @@ function DefaultLayout({ children }) {
                             darkMode={darkMode}
                         />
                     </div>
+                </div>
+
+                <div
+                    className={cx('onTopWrapper', {
+                        ontop: isShow,
+                        hidenTop: !isShow,
+                    })}
+                >
+                    <FontAwesomeIcon
+                        icon={faArrowsUpToLine}
+                        className="icon-onTop"
+                        onClick={handleTop}
+                    />
                 </div>
             </div>
         </ThemeContext.Provider>
