@@ -127,3 +127,6 @@ input [tabindex] {
 .darkContainer p {
     color: var(--default-sub-text-color);
 }
+.isMobile {
+    display: none;
+}

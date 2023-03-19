@@ -1,6 +1,8 @@
 .wrapper {
     padding: 2rem;
     width: 300px;
+    position: relative;
+    z-index: 100000000;
 }
 .account-wrapper {
     display: flex;

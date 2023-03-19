@@ -307,6 +307,7 @@ function Signup(props) {
                         className={cx('form-valid', {
                             showSignForm: !hidenForm,
                             hidenSignForm: hidenForm,
+                            dark: props.dark,
                         })}
                     >
                         <FontAwesomeIcon
@@ -352,6 +353,7 @@ function Signup(props) {
                                         for="in_Email"
                                         className={cx({
                                             inputValid: validEmail,
+                                            darkbg: props.dark,
                                         })}
                                     >
                                         Email
@@ -384,6 +386,7 @@ function Signup(props) {
                                         for="in_ResetEmail"
                                         className={cx({
                                             inputValid: valiresetemail,
+                                            darkbg: props.dark,
                                         })}
                                     >
                                         Email
@@ -392,7 +395,11 @@ function Signup(props) {
                             )}
 
                             {fogetPassword ? (
-                                <div className={cx('form-input')}>
+                                <div
+                                    className={cx('form-input', {
+                                        dark: props.dark,
+                                    })}
+                                >
                                     <input
                                         type={state}
                                         value={password}
@@ -437,6 +444,7 @@ function Signup(props) {
                                         for="in_Password"
                                         className={cx({
                                             inputValid: valiPassword,
+                                            darkbg: props.dark,
                                         })}
                                     >
                                         Password
@@ -561,6 +569,7 @@ function Signup(props) {
                         className={cx('form-valid', {
                             showSignForm: !hidenForm,
                             hidenSignForm: hidenForm,
+                            dark: props.dark,
                         })}
                     >
                         <FontAwesomeIcon
@@ -603,6 +612,7 @@ function Signup(props) {
                                     for="in_Email"
                                     className={cx({
                                         inputValid: validEmail,
+                                        darkbg: props.dark,
                                     })}
                                 >
                                     Email

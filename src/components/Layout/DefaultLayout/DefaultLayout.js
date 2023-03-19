@@ -9,6 +9,8 @@ import { useState, createContext, useEffect } from 'react'
 import { useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowsUpToLine } from '@fortawesome/free-solid-svg-icons'
+import { useMediaQuery } from 'react-responsive'
+import SidebarWindow from '../components/SidebarWindow'
 const cx = classNames.bind(styles)
 export const ThemeContext = createContext()
 function DefaultLayout({ children }) {
@@ -16,12 +18,22 @@ function DefaultLayout({ children }) {
     const [curentUser, setCurentUser] = useState(false)
     const [darkMode, setDarkMode] = useState(false)
     const [isShow, setisShow] = useState(false)
+    const isWindow = useMediaQuery({
+        query: '(min-width: 1155px)',
+    })
+    const isMobile = useMediaQuery({
+        query: '(max-width: 690px)',
+    })
+    const homeRef = useRef()
     const handleTop = () => {
-        window.scrollTo()
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
     }
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
+            if (window.scrollY > 300) {
                 setisShow(true)
             } else {
                 setisShow(false)
@@ -48,7 +60,11 @@ function DefaultLayout({ children }) {
             >
                 <div className={cx('form-sign')}>
                     {signin && (
-                        <Signup func={handleShowSign} handleUser={handleCurentUser} />
+                        <Signup
+                            func={handleShowSign}
+                            handleUser={handleCurentUser}
+                            dark={darkMode}
+                        />
                     )}
                 </div>
                 <Header
@@ -59,14 +75,31 @@ function DefaultLayout({ children }) {
                     darkColor={darkMode}
                 />
                 <div className={cx('container')}>
-                    <Sidebar hanleForm={handleShowSign} darkMode={darkMode} />
-                    <div className={cx('content')}>
+                    {isWindow ? (
+                        <SidebarWindow
+                            hanleForm={handleShowSign}
+                            darkMode={darkMode}
+                            isWindow={isWindow}
+                        />
+                    ) : (
+                        <Sidebar
+                            hanleForm={handleShowSign}
+                            darkMode={darkMode}
+                            isWindow={isWindow}
+                        />
+                    )}
+                    <div
+                        className={cx('content', {
+                            isMobile: isMobile,
+                        })}
+                    >
                         <Home
                             handleUser={handleCurentUser}
                             hanleForm={handleShowSign}
                             rootElemet={rootElemet}
                             stateCurent={curentUser}
                             darkMode={darkMode}
+                            ref={homeRef}
                         />
                     </div>
                 </div>
@@ -75,11 +108,12 @@ function DefaultLayout({ children }) {
                     className={cx('onTopWrapper', {
                         ontop: isShow,
                         hidenTop: !isShow,
+                        darkIconTop: darkMode,
                     })}
                 >
                     <FontAwesomeIcon
                         icon={faArrowsUpToLine}
-                        className="icon-onTop"
+                        className={cx('icon-top')}
                         onClick={handleTop}
                     />
                 </div>

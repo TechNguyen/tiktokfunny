@@ -18,7 +18,9 @@ function AccountItems({
     likesCount,
     bio,
     darkMode,
+    isWindow,
 }) {
+    console.log(isWindow)
     const preview = () => {
         return (
             <div className={cx('preview')}>
@@ -31,31 +33,87 @@ function AccountItems({
                         followersCount={followersCount}
                         likesCount={likesCount}
                         darkMode={darkMode}
+                        isWindow={isWindow}
                     />
                 </PopperWrapper>
             </div>
         )
     }
-    return (
+
+    return isWindow ? (
         <Tippy interactive render={preview} delay={[800, 300]} placement="bottom">
             <div
                 className={cx('accountWrapper', {
                     dark: darkMode,
                 })}
             >
-                <Images className={cx('account-avatar')} src={avatar} alt={lastname} />
-                <div className={cx('account-infor')}>
-                    <h4 className={cx('account-name')}>
-                        {lastname}
-                        {tick && (
-                            <FontAwesomeIcon
-                                icon={faCircleCheck}
-                                className={cx('account-icon')}
-                            />
-                        )}
-                    </h4>
-                    <p className={cx('account-username')}>{nickname}</p>
-                </div>
+                {isWindow ? (
+                    <Images
+                        className={cx('account-avatar')}
+                        src={avatar}
+                        alt={lastname}
+                    />
+                ) : (
+                    <Images
+                        className={cx('account-avatar_m_t')}
+                        src={avatar}
+                        alt={lastname}
+                    />
+                )}
+                {isWindow ? (
+                    <div className={cx('account-infor')}>
+                        <h4 className={cx('account-name')}>
+                            {lastname}
+                            {tick && (
+                                <FontAwesomeIcon
+                                    icon={faCircleCheck}
+                                    className={cx('account-icon')}
+                                />
+                            )}
+                        </h4>
+                        <p className={cx('account-username')}>{nickname}</p>
+                    </div>
+                ) : (
+                    <></>
+                )}
+            </div>
+        </Tippy>
+    ) : (
+        <Tippy interactive render={preview} delay={[800, 300]} placement="right">
+            <div
+                className={cx('accountWrapper', {
+                    dark: darkMode,
+                })}
+            >
+                {isWindow ? (
+                    <Images
+                        className={cx('account-avatar')}
+                        src={avatar}
+                        alt={lastname}
+                    />
+                ) : (
+                    <Images
+                        className={cx('account-avatar_m_t')}
+                        src={avatar}
+                        alt={lastname}
+                    />
+                )}
+                {isWindow ? (
+                    <div className={cx('account-infor')}>
+                        <h4 className={cx('account-name')}>
+                            {lastname}
+                            {tick && (
+                                <FontAwesomeIcon
+                                    icon={faCircleCheck}
+                                    className={cx('account-icon')}
+                                />
+                            )}
+                        </h4>
+                        <p className={cx('account-username')}>{nickname}</p>
+                    </div>
+                ) : (
+                    <></>
+                )}
             </div>
         </Tippy>
     )

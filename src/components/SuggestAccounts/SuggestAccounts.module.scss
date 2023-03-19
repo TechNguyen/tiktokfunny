@@ -34,6 +34,13 @@
     object-position: center;
     margin-right: 15px;
 }
+.account-avatar_m_t {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: center;
+}
 .account-infor {
     flex: 1;
     line-height: 2rem;

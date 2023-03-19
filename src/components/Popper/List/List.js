@@ -63,7 +63,7 @@ function List({
     }
     const renderResult = (attrs) => (
         <div className={cx('header-more_list')} tabIndex="-1" {...attrs}>
-            <PopperWrapper flex>
+            <PopperWrapper flex isDark={darkColor}>
                 {history.length > 1 && (
                     <Header title="Language" onBack={handleBackMenu} />
                 )}

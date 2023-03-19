@@ -7,7 +7,7 @@ import * as suggest from '~/service/suggestApi'
 const cx = classNames.bind(styles)
 var firstList = []
 var useListFist = []
-function SuggestAccounts({ label, darkMode }) {
+function SuggestAccounts({ label, darkMode, isWindow }) {
     const [userList, setUserList] = useState([])
     const [show, setShow] = useState(true)
     useEffect(() => {
@@ -43,17 +43,24 @@ function SuggestAccounts({ label, darkMode }) {
                         followersCount={user.followers_count}
                         likesCount={user.likes_count}
                         darkMode={darkMode}
+                        isWindow={isWindow}
                     />
                 ))}
             </div>
-            {show ? (
-                <p onClick={hanleShow} className={cx('handle-btn')}>
-                    See all
-                </p>
+            {isWindow ? (
+                <>
+                    {show ? (
+                        <p onClick={hanleShow} className={cx('handle-btn')}>
+                            See all
+                        </p>
+                    ) : (
+                        <p onClick={hanleShow} className={cx('handle-btn')}>
+                            See less
+                        </p>
+                    )}
+                </>
             ) : (
-                <p onClick={hanleShow} className={cx('handle-btn')}>
-                    See less
-                </p>
+                <></>
             )}
         </div>
     )

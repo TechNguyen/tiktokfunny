@@ -9,18 +9,26 @@ function ListItem({ data, onClick, darkColor }) {
         <Button
             href={data.to}
             className={cx('list-button-item', {
-                dark: darkColor,
+                darkItem: darkColor,
             })}
             onClick={onClick}
+            darkMode={darkColor}
+            isDark={darkColor}
         >
             {data.src ? (
-                <img src={data.src} alt={data.title} className={cx('header-img')} />
+                <img
+                    src={data.src}
+                    alt={data.title}
+                    className={cx('header-img', {
+                        darkImg: darkColor,
+                    })}
+                />
             ) : (
                 <></>
             )}
             {data.title}
             {data.title === 'Dark mode' ? (
-                <buttons
+                <button
                     className={cx('button-dark', {
                         darkbg: darkColor,
                     })}
@@ -30,7 +38,7 @@ function ListItem({ data, onClick, darkColor }) {
                             dark: darkColor,
                         })}
                     ></span>
-                </buttons>
+                </button>
             ) : (
                 <></>
             )}

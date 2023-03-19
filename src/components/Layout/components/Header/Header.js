@@ -14,6 +14,7 @@ import SearchHeader from '../Search/Search'
 import { Link } from 'react-router-dom'
 import config from '~/config/config'
 import { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 const cx = classNames.bind(styles)
 function Header(props) {
     const handleDark = props.lightodar
@@ -76,7 +77,9 @@ function Header(props) {
             }
         })
     })
-
+    const isMobile = useMediaQuery({
+        query: '(max-width: 900px)',
+    })
     return (
         <header
             className={cx('wrapper', {
@@ -92,17 +95,32 @@ function Header(props) {
                         <img src={images.logo} alt="Tiktok" />
                     )}
                 </Link>
-                <SearchHeader darkMode={props.darkColor} />
+                <SearchHeader darkMode={props.darkColor} isMobile={isMobile} />
                 <div className={cx('header-action')}>
-                    <Tippy interactive content="Upload-file" delay={[10, 450]}>
+                    <Tippy
+                        interactive
+                        content="Upload-file"
+                        delay={[10, 450]}
+                        isDark={props.darkColor}
+                    >
                         {props.stateCurent ? (
-                            <Button primary href="./upload" login>
-                                <UploadIcon width="3.2rem" />
+                            <Button
+                                primary
+                                href="./upload"
+                                login
+                                isDark={props.darkColor}
+                            >
+                                <UploadIcon width="3.2rem" isMobile={isMobile} />
                                 Upload
                             </Button>
                         ) : (
-                            <Button primary login onClick={props.func}>
-                                <UploadIcon width="3.2rem" />
+                            <Button
+                                primary
+                                login
+                                onClick={props.func}
+                                isDark={props.darkColor}
+                            >
+                                <UploadIcon width="3.2rem" isMobile={isMobile} />
                                 Upload
                             </Button>
                         )}
@@ -113,6 +131,7 @@ function Header(props) {
                                 content="Message"
                                 placement="bottom"
                                 delay={[100, 300]}
+                                isDark={props.darkColor}
                             >
                                 <Link to>
                                     <Image
@@ -124,7 +143,12 @@ function Header(props) {
                                     />
                                 </Link>
                             </Tippy>
-                            <Tippy content="Inbox" placement="bottom" delay={[100, 300]}>
+                            <Tippy
+                                content="Inbox"
+                                placement="bottom"
+                                delay={[100, 300]}
+                                isDark={props.darkColor}
+                            >
                                 <Image
                                     src={images.inbox}
                                     alt="inbox"
@@ -133,7 +157,7 @@ function Header(props) {
                                     })}
                                 />
                             </Tippy>
-                            <Tippy hideOnClick={false}>
+                            <Tippy hideOnClick={false} isDark={props.darkColor}>
                                 <List items={user_Menu} onChange={handleOnchange}>
                                     <Image
                                         src={images.avatar}
@@ -147,12 +171,22 @@ function Header(props) {
                         </div>
                     ) : (
                         <>
-                            <Button primary login holdLogin onClick={handleLogin}>
+                            <Button
+                                primary
+                                login
+                                holdLogin
+                                onClick={handleLogin}
+                                isDark={props.darkColor}
+                            >
                                 Log in
-                                <FontAwesomeIcon
-                                    icon={faRightToBracket}
-                                    className={cx('header-logo_login')}
-                                />
+                                {isMobile ? (
+                                    <></>
+                                ) : (
+                                    <FontAwesomeIcon
+                                        icon={faRightToBracket}
+                                        className={cx('header-logo_login')}
+                                    />
+                                )}
                             </Button>
                             <List
                                 items={list_item}

@@ -70,7 +70,7 @@ function SearchHeader(props) {
                         tabIndex="-1"
                         {...attrs}
                     >
-                        <PopperWrapper>
+                        <PopperWrapper isDark={props.darkMode}>
                             <h4 className={cx('search-account')}>Accounts</h4>
                             {searchResult.map((result) => (
                                 <AccountItem
@@ -86,6 +86,7 @@ function SearchHeader(props) {
                 <div
                     className={cx('header-search', {
                         dark: props.darkMode,
+                        isMobile: props.isMobile,
                     })}
                 >
                     <input

@@ -19,6 +19,7 @@ function Button({
     primarybtn,
     logout,
     signoutfnc,
+    isDark,
     darkMode,
     ...passProps
 }) {
@@ -49,7 +50,8 @@ function Button({
             primarybtn,
         },
         {
-            dark: darkMode,
+            isDark: isDark,
+            darkItem: darkMode,
         },
     )
     return (

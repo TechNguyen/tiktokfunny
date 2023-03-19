@@ -117,7 +117,7 @@ select:-webkit-autofill {
     color: var(--primary-icon);
     font-size: 1.2rem;
     padding: 0 0.5rem;
-    background-color: var(--default-background-input-color);
+    background-color: rgba(68, 68, 68, 0.482);
     transition: all 0.25s linear;
 }
 .inputValid {
@@ -348,4 +348,16 @@ select:-webkit-autofill {
 }
 .hidenInputform {
     animation: hidenbgForm 0.35s ease-in forwards;
+}
+.dark {
+    background-color: var(--default-background-color);
+}
+.dark h2 {
+    color: var(--default-main-text-color);
+}
+.dark svg {
+    color: var(--default-main-text-color);
+}
+.darkbg {
+    background-color: transparent;
 }

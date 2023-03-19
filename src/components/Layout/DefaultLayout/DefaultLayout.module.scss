@@ -35,38 +35,63 @@
     position: fixed;
     bottom: 40px;
     right: 30px;
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     background-color: rgb(255, 56, 95);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    outline: none;
+    &:hover {
+        outline-color: rgb(255, 167, 184);
+        outline-offset: 3px;
+        outline-width: 2px;
+        outline-style: solid;
+    }
 }
-.icon-onTop {
+.icon-top {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
 }
 .ontop {
     transition: all linear 0.4s;
-    animation: showOntop 0.4s linear forwards;
+    animation: showOntop 0.4s ease-in forwards;
 }
 .hidenTop {
     transition: all linear 0.4s;
-    animation: hidenTop 0.4s linear forwards;
+    animation: hidenTop 0.4s ease-in forwards;
 }
 @keyframes showOntop {
     from {
         right: -50px;
+        opacity: 0;
     }
     to {
-        right: 25px;
+        right: 35px;
+        opacity: 1;
     }
 }
 @keyframes hidenTop {
     from {
-        right: 25px;
+        right: 35px;
+        opacity: 1;
     }
     to {
         right: -50px;
+        opacity: 0;
     }
+}
+.darkIconTop {
+    background-color: #42f4d3;
+    &:hover {
+        outline-color: #98fbe9;
+        outline-offset: 3px;
+        outline-width: 2px;
+        outline-style: solid;
+    }
+}
+.isMobile {
+    padding-left: 130px;
 }

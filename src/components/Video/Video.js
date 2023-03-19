@@ -19,6 +19,8 @@ import { useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { InView } from 'react-intersection-observer'
 import Comments from '../Comments'
+import { useMediaQuery } from 'react-responsive'
+import { query } from 'firebase/database'
 const cx = classNames.bind(Styles)
 function Video({
     nickname,
@@ -105,10 +107,18 @@ function Video({
             setPlay(false)
         }
     }
+    const isDesktop = useMediaQuery({
+        query: '(max-width: 900px)',
+    })
+   
     return (
         <InView onChange={handleVideo}>
             {({ inView, ref, entry }) => (
-                <div className={cx('video-item')}>
+                <div
+                    className={cx('video-item', {
+                        isDeskTop_Mobile: isDesktop,
+                    })}
+                >
                     <div className={cx('video')}>
                         <div className={cx('video-avartar')}>
                             <Images
