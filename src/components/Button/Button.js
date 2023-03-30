@@ -21,6 +21,8 @@ function Button({
     signoutfnc,
     isDark,
     darkMode,
+    darkBtn,
+    isDarkHeader,
     ...passProps
 }) {
     let Comp = 'button'
@@ -51,7 +53,9 @@ function Button({
         },
         {
             isDark: isDark,
-            darkItem: darkMode,
+            darkItem: isDark,
+            darkbtn: isDark,
+            darkHeaderBtn: isDarkHeader,
         },
     )
     return (

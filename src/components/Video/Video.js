@@ -110,7 +110,7 @@ function Video({
     const isDesktop = useMediaQuery({
         query: '(max-width: 900px)',
     })
-   
+
     return (
         <InView onChange={handleVideo}>
             {({ inView, ref, entry }) => (
@@ -139,7 +139,11 @@ function Video({
                                 bio={bio}
                             />
                             <p className={cx('video-description')}>{description}</p>
-                            <span className={cx('video-music')}>
+                            <span
+                                className={cx('video-music', {
+                                    darkItem: darkMode,
+                                })}
+                            >
                                 <FontAwesomeIcon
                                     icon={faMusic}
                                     className={cx({ darkMode: darkMode })}
@@ -240,15 +244,16 @@ function Video({
                     </div>
                     {!isFllow ? (
                         stateCurent ? (
-                            <Button outline={true} darkMode={darkMode}>
+                            <Button
+                                outline={true}
+                                darkMode={darkMode}
+                                isDarkFllow={darkMode}
+                                isDark={darkMode}
+                            >
                                 Follow
                             </Button>
                         ) : (
-                            <Button
-                                outline={true}
-                                onClick={hanleForm}
-                                darkMode={darkMode}
-                            >
+                            <Button outline={true} onClick={hanleForm} isDark={darkMode}>
                                 Follow
                             </Button>
                         )

@@ -18,5 +18,7 @@ const images = {
     google: require('~/assets/imgs/google.svg').default,
     darkIcon: require('~/assets/imgs/iconDark.svg').default,
     moreiconDark: require('~/assets/imgs/moreiconDark.svg').default,
+    inboxDark: require('~/assets/imgs/inboxDark.svg').default,
+    messageDark: require('~/assets/imgs/messageDark.svg').default,
 }
 export default images

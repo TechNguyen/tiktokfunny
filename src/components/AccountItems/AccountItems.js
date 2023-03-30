@@ -6,9 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Images from '~/components/Images/Images'
 import { Link } from 'react-router-dom'
 const cx = classNames.bind(styles)
-function AccountItem({ data, onClick }) {
+function AccountItem({ data, onClick, darkColor }) {
     return (
-        <Link to={`/@${data.nickname}`} className={cx('wrapper')} onClick={onClick}>
+        <Link
+            to={`/@${data.nickname}`}
+            className={cx('wrapper', {
+                darkAccount: darkColor,
+            })}
+            onClick={onClick}
+        >
             <Images
                 className={cx('account-avatar')}
                 src={data.avatar}

@@ -237,8 +237,14 @@
 .icon {
     margin-top: 0.7rem;
 }
-.darkModde {
+.darkMode {
     color: var(--default-main-text-color);
+}
+.darkItem {
+    color: #c6c6c6;
+}
+.darkItem:hover {
+    background-color: rgb(24, 51, 46) !important;
 }
 .isDeskTop_Mobile .video-main {
     width: 220px;

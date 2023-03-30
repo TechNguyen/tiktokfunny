@@ -59,7 +59,8 @@ function SearchHeader(props) {
         <div>
             <HeadlessTippy
                 interactive
-                appendTo={() => document.body}
+                // appendTo={() => document.body}
+                appendTo={'parent'}
                 visible={showSearch && searchResult.length > 0}
                 onClickOutside={handleClickoutside}
                 render={(attrs) => (
@@ -77,6 +78,7 @@ function SearchHeader(props) {
                                     key={result.id}
                                     data={result}
                                     onClick={[handleClear, handleClickoutside]}
+                                    darkColor={props.darkMode}
                                 />
                             ))}
                         </PopperWrapper>

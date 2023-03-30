@@ -5,7 +5,14 @@ import images from '~/assets/imgs'
 import PropTypes from 'prop-types'
 const Images = forwardRef(
     (
-        { src, alt, className, falseback: customfalseback = images.noimage, ...props },
+        {
+            src,
+            alt,
+            className,
+            falseback: customfalseback = images.noimage,
+            curentColor,
+            ...props
+        },
         ref,
     ) => {
         const [falseback, setFalseBack] = useState('')
@@ -18,6 +25,7 @@ const Images = forwardRef(
                 ref={ref}
                 alt={alt}
                 src={falseback || src}
+                curentColor={curentColor}
                 {...props}
                 onError={handleError}
             />

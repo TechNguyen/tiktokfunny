@@ -91,7 +91,7 @@
 .darkbg {
     background-color: var(--primary) !important;
 }
-.dark {
+.darkBtn {
     transition: all linear 0.2s;
     background-color: rgb(255, 255, 255);
     left: 18px;
@@ -103,6 +103,7 @@
     background-color: rgba(0, 0, 0, 0.496) !important;
     transition: all linear 0.2s;
 }
-.darkImg img svg {
-    color: #ababab !important;
+.darkImg {
+    filter: invert(70%) sepia(99%) saturate(0%) hue-rotate(104deg) brightness(101%)
+        contrast(99%);
 }

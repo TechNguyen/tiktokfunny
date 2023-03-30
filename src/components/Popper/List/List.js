@@ -63,7 +63,13 @@ function List({
     }
     const renderResult = (attrs) => (
         <div className={cx('header-more_list')} tabIndex="-1" {...attrs}>
-            <PopperWrapper flex isDark={darkColor}>
+            <PopperWrapper
+                flex
+                isDark={darkColor}
+                className={cx({
+                    darkPopper: darkColor,
+                })}
+            >
                 {history.length > 1 && (
                     <Header title="Language" onBack={handleBackMenu} />
                 )}
@@ -83,6 +89,7 @@ function List({
             render={renderResult}
             onHide={handleRefeshToFirstPage}
             content={onlycontent}
+            darkColor={darkColor}
         >
             {children}
         </Tippy>

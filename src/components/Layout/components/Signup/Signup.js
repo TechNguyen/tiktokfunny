@@ -59,6 +59,9 @@ function Signup(props) {
     const checknewemail = (e) => {
         e.target.value.trim() === '' ? setvaliresetemail(false) : setvaliresetemail(true)
     }
+    const setItemLocalStore = () => {
+        localStorage.setItem()
+    }
     const auth = getAuth(app)
     auth.languageCode = 'it'
     const handleSigninFacebook = () => {
@@ -107,6 +110,10 @@ function Signup(props) {
     const handleShowSignup = () => {
         createUserWithEmailAndPassword(auth, useremail, userpassword)
             .then((userCredential) => {
+                const data = {
+                    username: useremail,
+                    userpassword: userpassword,
+                }
                 const user = userCredential.user
                 setUseremail('')
                 setUserPass('')
@@ -327,7 +334,11 @@ function Signup(props) {
                         </h3>
                         <div className={cx('form')}>
                             {fogetPassword ? (
-                                <div className={cx('form-input')}>
+                                <div
+                                    className={cx('form-input', {
+                                        darkInput: props.dark,
+                                    })}
+                                >
                                     <input
                                         type="email"
                                         value={email}
@@ -360,7 +371,11 @@ function Signup(props) {
                                     </label>
                                 </div>
                             ) : (
-                                <div className={cx('form-input')}>
+                                <div
+                                    className={cx('form-input', {
+                                        darkInput: props.dark,
+                                    })}
+                                >
                                     <input
                                         type="email"
                                         value={resetemail}
@@ -397,7 +412,7 @@ function Signup(props) {
                             {fogetPassword ? (
                                 <div
                                     className={cx('form-input', {
-                                        dark: props.dark,
+                                        darkInput: props.dark,
                                     })}
                                 >
                                     <input
@@ -486,6 +501,7 @@ function Signup(props) {
                             <div
                                 className={cx('login-another', {
                                     facebook: true,
+                                    darkMode: props.dark,
                                 })}
                                 onClick={handleSigninFacebook}
                             >
@@ -495,6 +511,7 @@ function Signup(props) {
                             <div
                                 className={cx('login-another', {
                                     google: true,
+                                    darkMode: props.dark,
                                 })}
                                 onClick={handleSignGoogle}
                             >
@@ -586,7 +603,11 @@ function Signup(props) {
                             Joinning and watching funny short videos
                         </h3>
                         <div className={cx('form')}>
-                            <div className={cx('form-input')}>
+                            <div
+                                className={cx('form-input', {
+                                    darkInput: props.dark,
+                                })}
+                            >
                                 <input
                                     type="email"
                                     value={useremail}
@@ -619,7 +640,11 @@ function Signup(props) {
                                 </label>
                             </div>
 
-                            <div className={cx('form-input')}>
+                            <div
+                                className={cx('form-input', {
+                                    darkInput: props.dark,
+                                })}
+                            >
                                 <input
                                     type={state}
                                     value={userpassword}

@@ -108,6 +108,9 @@
 .isDark span {
     color: #c6fff9;
 }
-.darkItem {
-    background-color: rgb(0, 0, 0) !important;
+.darkItem:hover {
+    background-color: rgb(29, 63, 57) !important;
+}
+.darkHeaderBtn:hover {
+    background-color: #5dccbf !important;
 }

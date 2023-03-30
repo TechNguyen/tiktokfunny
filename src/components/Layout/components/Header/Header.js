@@ -67,6 +67,35 @@ function Header(props) {
             signoutfnc: handleSignout,
         },
     ]
+    const listDark_item = [
+        {
+            src: images.LanguageDark,
+            title: 'Language',
+            children: {
+                title: 'English',
+                data: [
+                    {
+                        code: 'en',
+                        title: 'English',
+                        type: 'language',
+                    },
+                    {
+                        code: 'vn',
+                        title: 'Tiếng Việt',
+                        type: 'language',
+                    },
+                ],
+            },
+        },
+        { src: images.feedDark, title: 'Feedback and help', to: './feedback' },
+        { src: images.keyBoardDark, title: 'Keyboard and shortcuts' },
+        {
+            src: images.iconDarkMode,
+            title: 'Dark mode',
+            dark: props.darkColor,
+            darkMode: handleDark,
+        },
+    ]
     const [isScrolled, setIsscroll] = useState(false)
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -109,6 +138,7 @@ function Header(props) {
                                 href="./upload"
                                 login
                                 isDark={props.darkColor}
+                                isDarkHeader={props.darkColor}
                             >
                                 <UploadIcon width="3.2rem" isMobile={isMobile} />
                                 Upload
@@ -119,6 +149,7 @@ function Header(props) {
                                 login
                                 onClick={props.func}
                                 isDark={props.darkColor}
+                                isDarkHeader={props.darkColor}
                             >
                                 <UploadIcon width="3.2rem" isMobile={isMobile} />
                                 Upload
@@ -134,13 +165,23 @@ function Header(props) {
                                 isDark={props.darkColor}
                             >
                                 <Link to>
-                                    <Image
-                                        src={images.message}
-                                        alt="message"
-                                        className={cx('curent-user_message', {
-                                            'user-action': true,
-                                        })}
-                                    />
+                                    {props.darkColor ? (
+                                        <Image
+                                            src={images.messageDark}
+                                            alt="message"
+                                            className={cx('curent-user_message', {
+                                                'user-action': true,
+                                            })}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src={images.message}
+                                            alt="message"
+                                            className={cx('curent-user_message', {
+                                                'user-action': true,
+                                            })}
+                                        />
+                                    )}
                                 </Link>
                             </Tippy>
                             <Tippy
@@ -149,16 +190,30 @@ function Header(props) {
                                 delay={[100, 300]}
                                 isDark={props.darkColor}
                             >
-                                <Image
-                                    src={images.inbox}
-                                    alt="inbox"
-                                    className={cx('curent-user_inbox', {
-                                        'user-action': true,
-                                    })}
-                                />
+                                {props.darkColor ? (
+                                    <Image
+                                        src={images.inboxDark}
+                                        alt="inbox"
+                                        className={cx('curent-user_inbox', {
+                                            'user-action': true,
+                                        })}
+                                    />
+                                ) : (
+                                    <Image
+                                        src={images.inbox}
+                                        alt="inbox"
+                                        className={cx('curent-user_inbox', {
+                                            'user-action': true,
+                                        })}
+                                    />
+                                )}
                             </Tippy>
-                            <Tippy hideOnClick={false} isDark={props.darkColor}>
-                                <List items={user_Menu} onChange={handleOnchange}>
+                            <Tippy hideOnClick={false}>
+                                <List
+                                    items={user_Menu}
+                                    onChange={handleOnchange}
+                                    darkColor={props.darkColor}
+                                >
                                     <Image
                                         src={images.avatar}
                                         alt="avatar"
@@ -177,6 +232,7 @@ function Header(props) {
                                 holdLogin
                                 onClick={handleLogin}
                                 isDark={props.darkColor}
+                                isDarkHeader={props.darkColor}
                             >
                                 Log in
                                 {isMobile ? (
@@ -188,26 +244,49 @@ function Header(props) {
                                     />
                                 )}
                             </Button>
-                            <List
-                                items={list_item}
-                                onChange={handleOnchange}
-                                changeDark={handleDark}
-                                darkColor={props.darkColor}
-                            >
-                                {props.darkColor ? (
-                                    <img
-                                        src={images.moreiconDark}
-                                        alt="more"
-                                        className={cx('header-more')}
-                                    />
-                                ) : (
-                                    <img
-                                        src={images.moreicon}
-                                        alt="more"
-                                        className={cx('header-more')}
-                                    />
-                                )}
-                            </List>
+                            {props.darkColor ? (
+                                <List
+                                    items={listDark_item}
+                                    onChange={handleOnchange}
+                                    changeDark={handleDark}
+                                    darkColor={props.darkColor}
+                                >
+                                    {props.darkColor ? (
+                                        <img
+                                            src={images.moreiconDark}
+                                            alt="more"
+                                            className={cx('header-more')}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={images.moreicon}
+                                            alt="more"
+                                            className={cx('header-more')}
+                                        />
+                                    )}
+                                </List>
+                            ) : (
+                                <List
+                                    items={list_item}
+                                    onChange={handleOnchange}
+                                    changeDark={handleDark}
+                                    darkColor={props.darkColor}
+                                >
+                                    {props.darkColor ? (
+                                        <img
+                                            src={images.moreiconDark}
+                                            alt="more"
+                                            className={cx('header-more')}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={images.moreicon}
+                                            alt="more"
+                                            className={cx('header-more')}
+                                        />
+                                    )}
+                                </List>
+                            )}
                         </>
                     )}
                 </div>

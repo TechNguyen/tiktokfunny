@@ -117,8 +117,13 @@ select:-webkit-autofill {
     color: var(--primary-icon);
     font-size: 1.2rem;
     padding: 0 0.5rem;
-    background-color: rgba(68, 68, 68, 0.482);
+    background-color: rgb(255, 255, 255);
     transition: all 0.25s linear;
+}
+.darkInput input:focus ~ label {
+    background-color: #323232 !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .inputValid {
     top: -8px !important;
@@ -160,6 +165,9 @@ select:-webkit-autofill {
     &:hover {
         background-color: var(--default-primary-background);
     }
+}
+.darkMode:hover {
+    background-color: rgba(44, 44, 44, 0.779) !important;
 }
 .login-another img {
     position: absolute;
