@@ -15,12 +15,19 @@ function UserPreview({
     followersCount,
     likesCount,
     bio,
+    darkMode,
 }) {
     return (
-        <div className={cx('wrapper')}>
+        <div
+            className={cx('wrapper', {
+                darkMode: darkMode,
+            })}
+        >
             <div className={cx('account-wrapper')}>
                 <Images className={cx('account-avatar')} src={avatar} alt={lastname} />
-                <Button outline={true}>Follow</Button>
+                <Button outline={true} isDark={darkMode}>
+                    Follow
+                </Button>
             </div>
             <div className={cx('account-infor')}>
                 <div className={cx('account-detail')}>

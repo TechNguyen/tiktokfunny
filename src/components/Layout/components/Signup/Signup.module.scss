@@ -132,6 +132,13 @@ select:-webkit-autofill {
     padding: 0 0.5rem;
     background-color: var(--default-background-input-color);
 }
+.inputValidSign {
+    top: -8px !important;
+    color: var(--default-sub-text-color);
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+    background-color: var(--default-background-input-color);
+}
 .signin_btn {
     font-size: 1.6rem;
     border-radius: 20px;
@@ -367,5 +374,6 @@ select:-webkit-autofill {
     color: var(--default-main-text-color);
 }
 .darkbg {
-    background-color: transparent;
+    background-color: rgb(51, 51, 51);
+    border-radius: 2px;
 }

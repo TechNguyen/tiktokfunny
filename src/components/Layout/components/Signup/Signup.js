@@ -48,6 +48,8 @@ function Signup(props) {
     const [issignupEmail, setsignupemail] = useState(false)
     const [issignupPassword, setsignpassowrd] = useState(false)
     const [resetemail, setresetemail] = useState(null)
+    const [validEmailSign, setvalidEmailSign] = useState(false)
+    const [valiPasswordSign, setvaliPasswordSign] = useState(false)
     const errorRef = useRef()
     const checkValid = (e) => {
         if (e.target.type === 'email') {
@@ -56,11 +58,19 @@ function Signup(props) {
             e.target.value.trim() === '' ? setvaliPassword(false) : setvaliPassword(true)
         }
     }
+    const checkValidSign = (e) => {
+        if (e.target.type === 'email') {
+            e.target.value.trim() === ''
+                ? setvalidEmailSign(false)
+                : setvalidEmailSign(true)
+        } else {
+            e.target.value.trim() === ''
+                ? setvaliPasswordSign(false)
+                : setvaliPasswordSign(true)
+        }
+    }
     const checknewemail = (e) => {
         e.target.value.trim() === '' ? setvaliresetemail(false) : setvaliresetemail(true)
-    }
-    const setItemLocalStore = () => {
-        localStorage.setItem()
     }
     const auth = getAuth(app)
     auth.languageCode = 'it'
@@ -119,7 +129,6 @@ function Signup(props) {
                 setUserPass('')
             })
             .catch((error) => {
-                console.log(error)
                 if (error.code.includes('missing-email')) {
                     handleErrorSignup()
                 } else if (error.code.includes('internal')) {
@@ -616,9 +625,9 @@ function Signup(props) {
                                         setsignupemail(false)
                                     }}
                                     onBlur={(e) => {
-                                        checkValid(e)
+                                        checkValidSign(e)
                                     }}
-                                    id={cx('in_Email')}
+                                    id={cx('in_EmailSign')}
                                     spellCheck={false}
                                 />
                                 {issignupEmail ? (
@@ -632,7 +641,7 @@ function Signup(props) {
                                 <label
                                     for="in_Email"
                                     className={cx({
-                                        inputValid: validEmail,
+                                        inputValid: validEmailSign,
                                         darkbg: props.dark,
                                     })}
                                 >
@@ -653,10 +662,10 @@ function Signup(props) {
                                         setsignpassowrd(false)
                                     }}
                                     onBlur={(e) => {
-                                        checkValid(e)
+                                        checkValidSign(e)
                                     }}
                                     spellCheck={false}
-                                    id={cx('in_Password')}
+                                    id={cx('in_PasswordSign ')}
                                 />
                                 {show ? (
                                     <FontAwesomeIcon
@@ -686,9 +695,10 @@ function Signup(props) {
                                     <></>
                                 )}
                                 <label
-                                    for="in_Password"
+                                    for="in_PasswordSign"
                                     className={cx({
-                                        inputValid: valiPassword,
+                                        inputValid: valiPasswordSign,
+                                        darkbg: props.dark,
                                     })}
                                 >
                                     Password

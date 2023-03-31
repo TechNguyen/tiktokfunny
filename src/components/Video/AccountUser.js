@@ -18,6 +18,7 @@ function AccountUser({
     followersCount,
     likesCount,
     bio,
+    darkMode,
 }) {
     const preview = () => {
         return (
@@ -32,6 +33,7 @@ function AccountUser({
                         followersCount={followersCount}
                         likesCount={likesCount}
                         bio={bio}
+                        darkMode={darkMode}
                     />
                 </PopperWrapper>
             </div>

@@ -137,11 +137,12 @@ function Video({
                                 followersCount={followersCount}
                                 likesCount={likesCount}
                                 bio={bio}
+                                darkMode={darkMode}
                             />
                             <p className={cx('video-description')}>{description}</p>
                             <span
                                 className={cx('video-music', {
-                                    darkItem: darkMode,
+                                    darkMusic: darkMode,
                                 })}
                             >
                                 <FontAwesomeIcon

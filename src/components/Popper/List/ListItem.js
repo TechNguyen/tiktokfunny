@@ -10,7 +10,6 @@ function ListItem({ data, onClick, darkColor }) {
             href={data.to}
             className={cx('list-button-item', {
                 darkItem: darkColor,
-                // darkImg: darkColor,
             })}
             onClick={onClick}
             darkMode={darkColor}

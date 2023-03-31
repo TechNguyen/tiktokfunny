@@ -49,6 +49,7 @@ function DefaultLayout({ children }) {
     }
     const handleSetDark = () => {
         setDarkMode(darkMode === true ? false : true)
+        localStorage.setItem('dark', !darkMode)
     }
     return (
         <ThemeContext.Provider value={signin}>

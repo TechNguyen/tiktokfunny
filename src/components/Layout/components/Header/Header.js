@@ -213,9 +213,10 @@ function Header(props) {
                                     items={user_Menu}
                                     onChange={handleOnchange}
                                     darkColor={props.darkColor}
+                                    changeDark={handleDark}
                                 >
                                     <Image
-                                        src={images.avatar}
+                                        src={images.avatar || images.noimage}
                                         alt="avatar"
                                         className={cx('curent-user-avatar', {
                                             'curent-action': true,

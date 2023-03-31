@@ -54,3 +54,9 @@
     border-bottom: 1px solid var(--default-sub-border-color);
     padding-bottom: 1rem;
 }
+.darkMode {
+    background-color: rgb(34, 34, 34);
+}
+.darkMode strong {
+    color: #fff;
+}
